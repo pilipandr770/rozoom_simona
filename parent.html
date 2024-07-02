@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Elternbereich{% endblock %}
+{% block content %}
+    <h1>Elternbereich</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Trainer</th>
+                <th>Richtig</th>
+                <th>Zeitstempel</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td>{{ result.trainer }}</td>
+                    <td>{{ 'Ja' if result.correct else 'Nein' }}</td>
+                    <td>{{ result.timestamp }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Контракт{% endblock %}
+{% block content %}
+<h1>Контракт</h1>
+<form method="post" action="{{ url_for('contract') }}">
+    <label for="difficulty">Уровень сложности (время на ответ):</label>
+    <select name="difficulty" id="difficulty">
+        <option value="10">10 секунд</option>
+        <option value="15">15 секунд</option>
+        <option value="20">20 секунд</option>
+    </select>
+    <br>
+    <label for="correct_points">Баллы за правильный ответ:</label>
+    <input type="number" name="correct_points" id="correct_points" required>
+    <br>
+    <label for="incorrect_points">Баллы за неправильный ответ:</label>
+    <input type="number" name="incorrect_points" id="incorrect_points" required>
+    <br>
+    <label for="price_per_point">Цена за балл (в евроцентах):</label>
+    <input type="number" name="price_per_point" id="price_per_point" required>
+    <br>
+    <button type="submit">Подписать контракт</button>
+</form>
+{% endblock %}

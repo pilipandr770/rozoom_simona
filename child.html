@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Kinderbereich{% endblock %}
+{% block content %}
+    <h1>Kinderbereich</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('trainer', trainer_type='english') }}">Englisch</a></li>
+            <li><a href="{{ url_for('trainer', trainer_type='german') }}">Deutsch</a></li>
+            <li><a href="{{ url_for('trainer', trainer_type='history') }}">Geschichte</a></li>
+            <li><a href="{{ url_for('trainer', trainer_type='geography') }}">Geographie</a></li>
+            <li><a href="{{ url_for('trainer', trainer_type='biology') }}">Biologie</a></li>
+            <li><a href="{{ url_for('trainer', trainer_type='literature') }}">Literatur</a></li>
+            <li><a href="{{ url_for('trainer', trainer_type='math') }}">Mathematik</a></li>
+        </ul>
+    </nav>
+{% endblock %}

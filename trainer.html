@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Trainer{% endblock %}
+{% block content %}
+    <h1>Trainer</h1>
+    <p>{{ question }}</p>
+    <form method="post" action="{{ url_for('check_answer') }}">
+        {% for answer in answers %}
+            <input type="radio" name="answer" value="{{ answer }}" required> {{ answer }}<br>
+        {% endfor %}
+        <input type="hidden" name="correct_answer" value="{{ correct_answer }}">
+        <input type="hidden" name="trainer_type" value="{{ trainer_type }}">
+        <button type="submit">Absenden</button>
+    </form>
+    <p id="timer"></p>
+    <a href="{{ url_for('child') }}" class="btn btn-danger">Остановить и вернуться в кабинет</a>
+    <script>
+        let timeLeft = {{ time }};
+        const timerElement = document.getElementById("timer");
+
+        function updateTimer() {
+            if (timeLeft <= 0) {
+                document.forms[0].submit();
+            } else {
+                timerElement.innerText = "Zeit: " + timeLeft + " Sekunden";
+                timeLeft--;
+            }
+        }
+
+        setInterval(updateTimer, 1000);
+    </script>
+{% endblock %}
