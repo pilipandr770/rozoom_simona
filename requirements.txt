@@ -1,0 +1,7 @@
+Flask
+Flask-Babel
+nltk
+wikipedia-api
+geopy
+biopython
+matplotlib
